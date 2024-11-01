@@ -2,10 +2,6 @@ import ptbot
 import os
 from pytimeparse import parse
 
-TG_TOKEN = os.environ['TELEGRAM_TOKEN']
-TG_CHAT_ID = os.environ['TG_ID']
-bot = ptbot.Bot(TG_TOKEN)
-
 
 # Обрабатывает входящие сообщения, запускает таймер и отправляет уведомления
 def reply(chat_id, text):
@@ -40,6 +36,12 @@ def end(chat_id):
 
 
 def main():
+    TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
+    TG_CHAT_ID = os.getenv('TG_ID')
+
+    global bot
+    bot = ptbot.Bot(TG_TOKEN)
+
     bot.reply_on_message(reply)
     bot.run_bot()
 
