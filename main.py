@@ -1,6 +1,9 @@
 import ptbot
 import os
 from pytimeparse import parse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Обрабатывает входящие сообщения, запускает таймер и отправляет уведомления
