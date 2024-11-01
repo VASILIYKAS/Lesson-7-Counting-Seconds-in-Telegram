@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
+TG_CHAT_ID = os.getenv('TG_ID')
+
 
 # Обрабатывает входящие сообщения, запускает таймер и отправляет уведомления
 def reply(chat_id, text):
@@ -39,9 +42,6 @@ def end(chat_id):
 
 
 def main():
-    TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
-    TG_CHAT_ID = os.getenv('TG_ID')
-
     global bot
     bot = ptbot.Bot(TG_TOKEN)
 
